@@ -1,20 +1,23 @@
-import plotly.graph_objects as go
-import plotly.express as px
-
-import numpy as np
-
+# Good modules to have
+import numpy as np, pandas as pd
 import random, json, time, os
 
+# Required Modules
+import plotly.graph_objects as go
+import plotly.express as px
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
+# Add basic CSS
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
+# This is the main application
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
+# Do not bother us with exceptions
 app.config.suppress_callback_exceptions = True
 
 
@@ -42,7 +45,7 @@ app.layout = html.Div([
 ])
 
 #####################
-# Painter Vase Plot #
+#  Make Basic Plot  #
 #####################
     
 @app.callback(
@@ -63,5 +66,7 @@ def make_plot(N):
 # -------------------------- MAIN ---------------------------- #
 
 
+# This is the code that gets run when we call this file from the terminal
+# The port number can be changed to fit your particular needs
 if __name__ == '__main__':
     app.run_server(host='0.0.0.0', port=8080, debug=True, use_reloader=False)
