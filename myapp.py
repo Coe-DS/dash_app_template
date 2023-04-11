@@ -107,5 +107,7 @@ def make_plot(N,s=1):
 # -------------------------- MAIN ---------------------------- #
 
 
+# This is the code that gets run when we call this file from the terminal
+# The port number can be changed to fit your particular needs
 if __name__ == '__main__':
     app.run_server(host='0.0.0.0', port=8080, debug=True, use_reloader=False)
