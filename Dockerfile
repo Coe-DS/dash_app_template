@@ -4,11 +4,10 @@ WORKDIR /code
 
 COPY requirements.txt ./requirements.txt
 
-RUN apt-get update && apt-get install -y python3-pip gunicorn
+RUN apt-get update && apt-get install -y python3-pip gunicorn \
+  && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --upgrade pip
-
-RUN pip install -r ./requirements.txt
+RUN pip install --upgrade pip && pip install --no-cache-dir -r ./requirements.txt
 
 COPY . .
 

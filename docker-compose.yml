@@ -1,0 +1,9 @@
+services:
+  my-app:  # Name your service
+    image: dash-template  # The image you built
+    ports:
+      - "4500:8080"  # Port mapping
+    volumes:
+      - .:/code  # Mount your current directory as a volume
+    working_dir: /code
+    command: gunicorn --reload -b 0.0.0.0:8080 myapp:server
